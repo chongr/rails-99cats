@@ -1,11 +1,6 @@
 class Cat < ActiveRecord::Base
   COLORS = [
-    'grey',
     'black',
-    'brown',
-    'white',
-    'gold',
-    'red',
     'platinum',
     'green'
   ]
@@ -18,5 +13,5 @@ class Cat < ActiveRecord::Base
     now = Date.today
     now.year - birth_date.year
   end
-  
+
 end
