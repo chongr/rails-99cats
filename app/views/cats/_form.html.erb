@@ -1,5 +1,8 @@
   <% @cat ||= Cat.new %>
   <form action= <%= @cat.persisted? ? cat_url(@cat)  : cats_url  %> method = "post" >
+    <!-- <% if @cat.persisted? %>
+      <input name= />
+    <% end %> -->
   <<%= @cat.persisted? ? 'input type=hidden name=_method value=PATCH' : 'br' %>>
   <br>
   <label for="cat[name]">Name:</label>
@@ -11,7 +14,7 @@
   <label for="cat[color]">color:</label>
   <select name="cat[color]">
     <% Cat::COLORS.each do |color| %>
-      <option value= <%= color %> <%= @cat.color == color ? 'selected' : '' %>><%= color %></option>
+      <option value='<%= color %>' <%= @cat.color == color ? 'selected' : '' %>><%= color %></option>
     <% end %>
   </select>
   <br>

@@ -22,3 +22,14 @@
 <%= link_to "Edit Cat", edit_cat_url(@cat) %>
 <br>
 <%= link_to "All Cats", cats_url %>
+
+<h2> Outstanding Rental Requests </h2>
+<br>
+<% @cat.cat_rental_requests.order(:start_date).each do |crr| %>
+  <%= crr.start_date.to_s + " to " + crr.end_date.to_s + " status: " + crr.status %>
+  <% if crr.status == 'PENDING' %>
+    <%= button_to "Approve", cat_rental_request_url(crr), method: 'patch'%>
+    <%= button_to "Deny", cat_rental_request_url(crr), method: 'put'%>
+  <% end %>
+  <br>
+<% end %>

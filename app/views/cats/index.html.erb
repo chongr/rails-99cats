@@ -1,7 +1,7 @@
 <h2> HERE ARE ALL THE CATS BRO </h2>
 
 <% @cats.each do |cat| %>
-  <%= link_to "#{cat.name}", cat_url(cat) %>
+  <%= link_to cat.name, cat_url(cat) %>
   <br>
 <% end %>
 
